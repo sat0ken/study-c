@@ -1,7 +1,17 @@
+static int matx[4][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+    {10, 11, 12}
+};
+
 main()
 {
-    int data[10], i;
-    for(i=0; i<10; i++) data[i] = i*10;
-
-    for(i=9; i>=0; i--) printf("data[%d] --> %d\n", i, data[i]);
+    int i, j;
+    for (i = 0; i < 4; i++){
+        for (j = 0; j < 3; j++) {
+            printf("%4d", matx[i][j]);
+        }
+        printf("\n");
+    }
 }

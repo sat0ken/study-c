@@ -1,19 +1,24 @@
-int clo, line;
+static char ys[10] = {
+    '\n', '\t', '\f', '\\', '\b',
+    '\'', '\r', '\0', '\117', '\101'
+    },
+    str[] = "<STRING>";
 
 main()
 {
-    int i, j, add(int);
-    add(10);
-    add(10);
-    add(10);
+    int i;
+    void Prints(char *);
+    char xs = 0x41,
+         xt = 'A';
+    printf("\nxs --> %c xt --> %c\n\n", xs, xt);
+    for (i = 0; i < 10; i++) {
+        printf("ys[%d] --> %02X\n", i, ys[i]);
+    }
+    printf("\n%s\n", str);
+    Prints("C Progam");
 }
 
-int add(int dd)
+void Prints (char *str)
 {
-    static int jj = 0;
-    int kk = 0;
-    jj += dd;
-    kk += dd;
-    printf("add(%2d) static --> %3d, auto --> %3d\n", dd, jj, kk);
-    return 0;
+    printf("str ----> %s\n", str);
 }
