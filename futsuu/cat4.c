@@ -7,15 +7,15 @@ static void do_cat(FILE *f, int optarg);
 int
 main(int argc, char *argv[])
 {
-    int i, opt, argopt;
+    int i, opt, optarg;
 
     while ((opt = getopt(argc, argv, "nt")) != -1) {
         switch (opt) {
         case 'n':
-            argopt = 'n';
+            optarg = 'n';
             break;
         case 't':
-            argopt = 't';
+            optarg = 't';
             break;
         case '?':
             fprintf(stderr, "Usage: %s [-t output \\t] [-n output \\n]", argv[0]);
@@ -24,7 +24,7 @@ main(int argc, char *argv[])
     }
 
     if (argc == 1) {
-        do_cat(stdin, argopt);
+        do_cat(stdin, optarg);
     } else {
         for (i = optind; i < argc; i++) {
             FILE *f;
@@ -33,7 +33,7 @@ main(int argc, char *argv[])
                 perror(argv[i]);
                 exit(1);
             }
-            do_cat(f, argopt);
+            do_cat(f, optarg);
             fclose(f);
         }
     }
